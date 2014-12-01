@@ -17,7 +17,7 @@ exports.signup = function(req,res){
     
     user.save(function(err){
         if(err){
-            res.sesson.error = err;
+            res.session.error = err;
             res.redirect('/signup');
         } else {
             req.session.user = user.id;

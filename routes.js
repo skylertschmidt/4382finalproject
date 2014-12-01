@@ -60,6 +60,29 @@ module.exports = function(app){
     app.post('/user/delete',users.deleteUser);
     app.post('/login', users.login); 
     app.get('/user/profile',users.getUserProfile);
+//////end auth
+
+
+
+var photos = require("./controllers/photos_controller");
+var pages = require("./controllers/pages_controller");
+var comments = require("./controllers/comments_controller");
+
+app.use('/static', express.static('./static')).
+    use('/images', express.static('./images')).
+    use('/lib',express.static('../lib'));
+    
+    app.get('/',function(req,res){
+        res.render('photos');
+    });
+
+
+
+app.get('/photos',photos.getPhotos);
+app.get('/photo', photos.getPhoto);
+app.get('/page',pages.getPage);
+app.get('/comments/get',comments.getComment);
+app.get('/comments/add',comments.addComment);
 
  
 };

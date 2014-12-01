@@ -31,6 +31,14 @@ app.use(expressSession({
         collection: 'session'
     })
 }));
+
+require("./models/comments_model.js");
+require("./models/page_model.js");
+require("./models/photo_model.js");
+
+
+
+
 require("./routes")(app);
 app.listen(port);
 console.log("running server");

@@ -3,6 +3,7 @@
     <head>
         <title>User Login and Sessions</title>
         <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="../static/css/comment_style.css" type="text/css" />
     </head>
     <body>
         <div ng-controller="myController" >
@@ -10,6 +11,38 @@
             <a href='/logout'>Logout</a>
             <a href='/user'>Edit User</a>
             <h2>User Feed</h2>
+            
+            <div id='photosContainer' ng-controller="photoController">
+                <p class='imageTitle'>{{photos.title}} </p>
+                <img class='mainPhoto' ng-src='{{photos.filename}}'/>
+            
+            <div id ='photoComments' ng-init="addComments=false; replySubject=''; replyBody=''">
+                <div class='comment' ng-include="'commentThread.html'"></div> 
+            </div>
+            
+            </div>
+                <div id="profile" >
+                    <div id="list">
+                        <ul>
+                            <li> {{user.username}}</li>
+                            <li> {{user.name}}</li>
+                            <li> {{user.color}} </li>
+                            <li> {{user.email}}</li>
+                        </ul>
+                    </div>
+                </div>
+            
+        
+        <div ng-controller="pagesCtrl">
+            <div id="pageComments" ng-init="addComment=false; replySubject='';replyBody=''" >
+                <div class='comment' ng-include="'commentThread.html'"></div>
+            </div>
+        </div>
+        </div>
+            
+            
+            
+            
         </div>
         <hr><%= msg %>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
