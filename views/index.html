@@ -7,14 +7,13 @@
     </head>
     <body>
         <div ng-controller="myController" >
-            <h2>Welcome. You are logged in as <%= username %></h2>
-            <a href='/logout'>Logout</a>
-            <a href='/user'>Edit User</a>
-            <h2>User Feed</h2>
+            <!--<h2>User Feed</h2>-->
             
-            <div id='photosContainer' ng-controller="photoController">
-                <p class='imageTitle'>{{photos.title}} </p>
-                <img class='mainPhoto' ng-src='{{photos.filename}}'/>
+            <div id='photosContainer'>
+                <p class='imageTitle'>{{user.name}} </p>
+                <!--<img class='mainPhoto' ng-src='../static/images/{{photos.filename}}'/>-->
+
+                <img class='mainPhoto' src='../static/images/profile-img.jpg' />
             
             <div id ='photoComments' ng-init="addComments=false; replySubject=''; replyBody=''">
                 <div class='comment' ng-include="'comment_thread.html'"></div> 
@@ -25,7 +24,6 @@
                     <div id="list">
                         <ul>
                             <li> {{user.username}}</li>
-                            <li> {{user.name}}</li>
                             <li> {{user.color}} </li>
                             <li> {{user.email}}</li>
                         </ul>
@@ -35,9 +33,15 @@
         
         <div ng-controller="pageController">
             <div id="pageComments" ng-init="addComment=false; replySubject='';replyBody=''" >
-                <div class='comment' ng-include="'comment_thread.html'"></div>
+                <div class='comment' ng-include="comment_thread.html"></div>
             </div>
         </div>
+
+
+            <h4>You are logged in as <%= username %></h4>
+            <a href='/logout'>Logout</a>
+            <a href='/user'>Edit User</a>
+
         </div>
             
             
@@ -45,7 +49,7 @@
             
         </div>
         <hr><%= msg %>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
-        <script src="/static/js/my_app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+        <script src="../static/js/my_app.js"></script>
     </body>
     </html>

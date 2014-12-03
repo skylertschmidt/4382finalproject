@@ -4,7 +4,7 @@ var crypto = require("crypto");
 
 module.exports = function(app){
  ///Authentication   
- var users = require("./controllers/users_controller");
+ var users = require("./controllers/users_controller.js");
     
     app.use('/static', express.static('./static')).
         use('/lib', express.static('../lib'));
@@ -64,9 +64,9 @@ module.exports = function(app){
 
 
 
-var photos = require("./controllers/photos_controller");
-var pages = require("./controllers/pages_controller");
-var comments = require("./controllers/comments_controller");
+var photos = require("./controllers/photos_controller.js");
+var pages = require("./controllers/pages_controller.js");
+var comments = require("./controllers/comments_controller.js");
 
 app.use('/static', express.static('./static')).
     use('/images', express.static('./images')).

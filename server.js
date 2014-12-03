@@ -7,14 +7,23 @@ mongoStore = require("connect-mongo")({session: expressSession}), //mongoStore
 
 mongoose = require("mongoose");
 
-require("./models/user_model.js");
+
 //var port = process.env.PORT;
 //var host = process.env.IP;
 var port = "27017";
 var host = "127.0.0.1";
+var db = "profiles";
 
-mongoose.connect("mongodb://" + host +":" + port)
+require("./models/comments_model.js");
+require("./models/page_model.js");
+require("./models/photo_model.js");
+require("./models/user_model.js");
 
+mongoose.connect("mongodb://" + host + ":" + port + "/" + db);
+
+//mongoose.connect("mongodb://" + host + ":" + port );
+
+console.log("Connected to db")
 
 app.engine('.html',require("ejs").__express);
 
@@ -35,9 +44,7 @@ app.use(expressSession({
     })
 }));
 
-require("./models/comments_model.js");
-require("./models/page_model.js");
-require("./models/photo_model.js");
+
 
 
 

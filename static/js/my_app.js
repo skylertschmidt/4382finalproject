@@ -1,16 +1,20 @@
 
-var app = angular.module('myApp', []);
 
- app.controller('myController', ['$scope', '$http',
+
+var james = angular.module('myApp', []);
+
+ james.controller('myController', ['$scope', '$http',
   function($scope, $http){
   $http.get('/user/profile')
-    .sucsess(function(data,status,headers,config){
+    .success(function(data,status,headers,config){
+
         $scope.user = data;
         $scope.error = "";
-    }).
-    error(function(data,status,headers,config){
+    })
+    .error(function(data,status,headers,config){
         $scope.user = {};
         $scope.error = data;
+        alert("dude");
     });
  }]);
 

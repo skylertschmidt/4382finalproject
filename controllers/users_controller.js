@@ -38,10 +38,12 @@ exports.login = function(req,res){
         } else if  (user.hashed_password ===
          hashPW(req.body.password.toString())){
              req.session.regenerate(function(){
+
             req.session.user = user.id;
             req.session.username = user.username;
             req.session.color = user.color;
             req.session.email = user.email;
+            
             req.session.msg = "Authinticated as "+ user.username;
             res.redirect('/');
         });
