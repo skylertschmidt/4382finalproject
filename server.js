@@ -8,10 +8,13 @@ mongoStore = require("connect-mongo")({session: expressSession}), //mongoStore
 mongoose = require("mongoose");
 
 require("./models/user_model.js");
-var port = process.env.PORT;
-var host = process.env.IP;
+//var port = process.env.PORT;
+//var host = process.env.IP;
+var port = "27017";
+var host = "127.0.0.1";
 
-mongoose.connect("mongodb://" + host +"/" + port)
+mongoose.connect("mongodb://" + host +":" + port)
+
 
 app.engine('.html',require("ejs").__express);
 
@@ -40,5 +43,5 @@ require("./models/photo_model.js");
 
 
 require("./routes")(app);
-app.listen(port);
+app.listen(8080);
 console.log("running server");
