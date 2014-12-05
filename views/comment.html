@@ -12,5 +12,5 @@
 </form>
 <input type="button" ng-show="reply==true" value="Cancel" ng-click="reply=false;"></input>
 <div ng-repeat="comment in comment.replies" ng-init="reply=false;replySubject='';replyBody=''">
-    <div class="comment" ng-include="'/static/comment.html'"></div>
+    <div class="comment" ng-include="'comment.html'"></div>
 </div>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="myApp">
     <head>
-        <title>User Login and Sessions</title>
+        <title>MyClassRoom</title>
         <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
     </head>
     <body>
@@ -20,10 +20,11 @@
             <form method='POST' action='/user/delete'>
                 <input type="submit" value="Delete User"/>
             </form>
+            <a href="/">Back to Profile</a>
             <hr><%= msg %>
             <hr>{{error}}
         </div>
-         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-        <script type="text/javascript" src="/static/js/my_app.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+        <script type="text/javascript" src="./static/js/my_app.js"></script>
     </body>
 </html>
