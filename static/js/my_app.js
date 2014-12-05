@@ -8,6 +8,7 @@ var james = angular.module('myApp', []);
   $http.get('/user/profile')
     .success(function(data,status,headers,config){
 
+        $scope.users = data;
         $scope.user = data;
         $scope.error = "";
     })

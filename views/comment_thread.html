@@ -9,5 +9,5 @@
 </form>
 <input type="button" ng-show="addComment==true" value="Cancel" ng-click="addComment=false;"></input>
 <div ng-repeat="comment in commentThread.replies" ng-init="reply=false;replySubject='';replyBody=''">
-    <div class="comment" ng-include="'/static/comment.html'"></div>
+    <div class="comment" ng-include="'comment.html'"></div>
 </div>
