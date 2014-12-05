@@ -15,7 +15,7 @@ var james = angular.module('myApp', []);
     .error(function(data,status,headers,config){
         $scope.user = {};
         $scope.error = data;
-        alert("dude");
+        alert(error);
     });
  }]);
 
